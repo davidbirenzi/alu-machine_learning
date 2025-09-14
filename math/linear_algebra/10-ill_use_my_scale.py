@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-def np_shape(matrix):
-    """ implements the np_shape function
+""" implements the np_shape function
 """
-    return matrix.shape # Using the .shape attribute of numpy ndarray
+
+
+def np_shape(matrix):
+    """ returns the shape of a numpy nd.array
+    """
+    return matrix.shape
