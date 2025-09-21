@@ -1,54 +1,30 @@
 #!/usr/bin/env python3
 """
-Module to determine the definiteness of a square numpy matrix.
+This module contains the function to calculate the definiteness of a matrix.
 """
-
 import numpy as np
 
 
 def definiteness(matrix):
     """
-    Determines the definiteness of a square numpy.ndarray.
-
-    Args:
-        matrix (numpy.ndarray): matrix to check
-
-    Returns:
-        str or None: 'Positive definite', 'Positive semi-definite',
-                     'Negative definite', 'Negative semi-definite',
-                     'Indefinite', or None if invalid
-                     
-    Raises:
-        TypeError: if matrix is not a numpy.ndarray
+    calculates the definiteness of a matrix
     """
     if not isinstance(matrix, np.ndarray):
         raise TypeError("matrix must be a numpy.ndarray")
 
-    if matrix.ndim != 2 or matrix.shape[0] != matrix.shape[1]:
+    if not np.array_equal(matrix, matrix.T):
         return None
 
-    if matrix.size == 0:
-        return None
-
-    try:
-        eigvals = np.linalg.eigvals(matrix)
-    except np.linalg.LinAlgError:
-        return None
-
-    pos = np.all(eigvals > 0)
-    pos_semi = np.all(eigvals >= 0)
-    neg = np.all(eigvals < 0)
-    neg_semi = np.all(eigvals <= 0)
-
-    if pos:
+    if np.all(np.linalg.eigvals(matrix) > 0):
         return "Positive definite"
-    if pos_semi and not pos:
-        return "Positive semi-definite"
-    if neg:
-        return "Negative definite"
-    if neg_semi and not neg:
-        return "Negative semi-definite"
-    if not pos_semi and not neg_semi:
-        return "Indefinite"
 
-    return None
+    if np.all(np.linalg.eigvals(matrix) >= 0):
+        return "Positive semi-definite"
+
+    if np.all(np.linalg.eigvals(matrix) < 0):
+        return "Negative definite"
+
+    if np.all(np.linalg.eigvals(matrix) <= 0):
+        return "Negative semi-definite"
+
+    return "Indefinite"
