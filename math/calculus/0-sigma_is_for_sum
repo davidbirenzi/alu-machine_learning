@@ -1,7 +1,1 @@
-#!/usr/bin/env python3
-"""
-A simple script that computes a specific sigma value.
-"""
-
-if __name__ == "__main__":
-    print(3)
+2 + 3 + 4 + 5
