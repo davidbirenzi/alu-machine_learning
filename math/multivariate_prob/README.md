@@ -1,1 +1,1 @@
-multivariate probability
+This is an assignment on multivariate probability
