@@ -1,1 +1,1 @@
-Convolutions and pooling
+Convolutions and pooling assignment.
