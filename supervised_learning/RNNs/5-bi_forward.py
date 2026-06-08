@@ -36,3 +36,4 @@ class BidirectionalCell:
         h_next = np.tanh(np.matmul(h_x, self.Whf) + self.bhf)
 
         return h_next
+    

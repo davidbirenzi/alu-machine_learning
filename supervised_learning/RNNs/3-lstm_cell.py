@@ -62,3 +62,4 @@ class LSTMCell:
         h_next = ot * np.tanh(c_next)
         y = self.softmax(np.matmul(h_next, self.Wy) + self.by)
         return h_next, c_next, y
+    
