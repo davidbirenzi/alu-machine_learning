@@ -66,4 +66,3 @@ class Decoder(tf.keras.layers.Layer):
             x = self.blocks[i](x, encoder_output, training,
                                look_ahead_mask, padding_mask)
         return x
- 
